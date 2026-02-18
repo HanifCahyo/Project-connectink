@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::middleware('auth')->group(function () {
 
     // Route Kelas
     Route::resource('kelas', KelasController::class);
+
+    // Route Siswa
+    Route::resource('siswa', SiswaController::class);
 });
 
 require __DIR__ . '/auth.php';
