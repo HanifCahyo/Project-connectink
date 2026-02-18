@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('siswa.index')" :active="request()->routeIs('siswa.*')">
                         {{ __('CRUD SISWA') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('guru.index')" :active="request()->routeIs('guru.*')">
+                        {{ __('CRUD GURU') }}
+                    </x-nav-link>
                 </div>
             </div>
 
