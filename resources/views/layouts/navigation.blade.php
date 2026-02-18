@@ -24,6 +24,15 @@
                     <x-nav-link :href="route('guru.index')" :active="request()->routeIs('guru.*')">
                         {{ __('CRUD GURU') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('laporan.siswa')" :active="request()->routeIs('laporan.siswa')">
+                        {{ __('Siswa') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('laporan.guru')" :active="request()->routeIs('laporan.guru')">
+                        {{ __('Guru') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('laporan.semua')" :active="request()->routeIs('laporan.semua')">
+                        {{ __('Siswa & Guru') }}
+                    </x-nav-link>
                 </div>
             </div>
 
