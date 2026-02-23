@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\OrangTua;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,10 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswas = Siswa::with('kelas')->get();
+        $siswas = Siswa::with(['kelas', 'orang_tua'])->get();
         $kelas = Kelas::all();
-        return view('siswa.index', compact('siswas', 'kelas'));
+        $orangtua = OrangTua::all();
+        return view('siswa.index', compact('siswas', 'kelas', 'orangtua'));
     }
 
     /**
@@ -41,11 +43,13 @@ class SiswaController extends Controller
         $data = $request->validate([
             'nama' => 'required|string|max:255',
             'kelas_id' => 'required|exists:kelas,id',
+            'orang_tua_id' => 'required|exists:orang_tuas,id',
         ]);
 
         $siswa = Siswa::create($data);
 
         $siswa->load('kelas'); // Memuat relasi kelas untuk mendapatkan nama_kelas
+        $siswa->load('orang_tua');
 
         return response()->json([
             'success' => true,
@@ -72,12 +76,15 @@ class SiswaController extends Controller
         $data = $request->validate([
             'nama' => 'required|string|max:255',
             'kelas_id' => 'required|exists:kelas,id',
+            'orang_tua_id' => 'required|exists:orang_tuas,id',
         ]);
 
         $siswa = Siswa::findOrFail($id);
         $siswa->update($data);
 
         $siswa->load('kelas'); // Memuat relasi kelas untuk mendapatkan nama_kelas
+        $siswa->load('orang_tua');
+
 
         return response()->json([
             'success' => true,

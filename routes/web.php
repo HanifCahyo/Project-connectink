@@ -5,6 +5,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrangTuaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
 
     // Route Guru
     Route::resource('guru', GuruController::class);
+
+    // Route Orang Tua
+    Route::resource('orangtua', OrangTuaController::class);
 
     Route::prefix('laporan')->group(function () {
         Route::get('/siswa', [LaporanController::class, 'siswaPerKelas'])->name('laporan.siswa');

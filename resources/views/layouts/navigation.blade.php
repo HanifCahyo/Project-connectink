@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('guru.index')" :active="request()->routeIs('guru.*')">
                         {{ __('CRUD GURU') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('orangtua.index')" :active="request()->routeIs('orangtua.*')">
+                        {{ __('CRUD Orang Tua') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('laporan.siswa')" :active="request()->routeIs('laporan.siswa')">
                         {{ __('Siswa') }}
                     </x-nav-link>

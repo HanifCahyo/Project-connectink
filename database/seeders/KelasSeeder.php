@@ -28,18 +28,17 @@ class KelasSeeder extends Seeder
         ]);
 
         $kelas1->siswas()->createMany([
-            ['nama' => 'Hanif'],
-            ['nama' => 'Cahyo'],
+            ['nama' => 'Hanif', 'orang_tua_id' => '1'],
+            ['nama' => 'Cahyo', 'orang_tua_id' => '2'],
         ]);
 
         $kelas2->siswas()->createMany([
-            ['nama' => 'Prasetyo'],
-            ['nama' => 'Hafidz'],
+            ['nama' => 'Prasetyo', 'orang_tua_id' => '3'],
+            ['nama' => 'Hafidz', 'orang_tua_id' => '4'],
         ]);
 
         $kelas3->siswas()->createMany([
-            ['nama' => 'Arum'],
-            ['nama' => 'Maulia'],
+            ['nama' => 'Arum', 'orang_tua_id' => '5'],
         ]);
 
         $kelas1->gurus()->createMany([
